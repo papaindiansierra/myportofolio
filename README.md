@@ -26,3 +26,14 @@ dalam pengerjaan tugas ini, saya memanfaatkan bantuan dari AI untuk mengetahui f
 contohnya saat membuat model Project baru atau menambah field baru. kita wajib menjalankan makemigrations untuk mencatat perubahannya, lalu migrate untuk memperbarui tabel database.
 
 dalam pengerjaan tugas ini, saya memanfaatkan AI untuk membantu menganalisis dan menjelaskan penyebab kesalahan atau error pada kode program yang saya buat  sehingga keseluruhan fiturnya dapat berjalan dengan baik. selain itu, saya juga meminta saran dan panduan dalam menyamakan elemen desain antar halaman agar tampilannya terlihat konsisten dengan halaman yang lain.
+
+### Tugas 3
+1. pemanfaatan ModelForm yaitu karena bisa mengotomatisasi pembuatan form HTML berdasarkan kelas model yang sudah ada. Hal ini jadi sangat efektif untuk mempersingkat waktu penulisan kode berulang sekaligus memastikan validasi data langsung sinkron dengan skema basis data.
+
+pemanfaatan {%% csrf_token %%} adalah sebagai pengaman dari server untuk memastikan bahwa data yang dikirim melalui formulir benar-benar berasal dari halaman web kita.
+
+2. JSON dipilih karena memiliki bentuk yang jauh lebih ringkas, tidak membutuhkan banyak tanda baca atau tag yang panjang, dan lebih cepat dan ringan saat diproses.
+
+3. Saat URL diakses, sistem mengambil data dari basis data, mengubahnya ke format standar, lalu mengirimkannya sebagai respons ke pengguna.
+
+Proses serialization diperlukan untuk mengubah data internal Django agar dapat dibaca dan dikirim dengan mudah melalui jaringan web.
