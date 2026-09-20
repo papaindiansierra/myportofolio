@@ -37,3 +37,5 @@ pemanfaatan {%% csrf_token %%} adalah sebagai pengaman dari server untuk memasti
 3. Saat URL diakses, sistem mengambil data dari basis data, mengubahnya ke format standar, lalu mengirimkannya sebagai respons ke pengguna.
 
 Proses serialization diperlukan untuk mengubah data internal Django agar dapat dibaca dan dikirim dengan mudah melalui jaringan web.
+
+dalam pengerjaan tugas ini, saya memanfaatkan AI sebagai teman diskusi untuk membantu dalam memahami konsep ModelForm dan JSON serta membantu dalam mendebug error pada program di tengah pengerjaan disertai dengan penjelasan agar saya dapat memahami error yang terjadi.
