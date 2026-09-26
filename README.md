@@ -39,3 +39,13 @@ pemanfaatan {%% csrf_token %%} adalah sebagai pengaman dari server untuk memasti
 Proses serialization diperlukan untuk mengubah data internal Django agar dapat dibaca dan dikirim dengan mudah melalui jaringan web.
 
 dalam pengerjaan tugas ini, saya memanfaatkan AI sebagai teman diskusi untuk membantu dalam memahami konsep ModelForm dan JSON serta membantu dalam mendebug error pada program di tengah pengerjaan disertai dengan penjelasan agar saya dapat memahami error yang terjadi.
+
+### Tugas 4
+dalam mengerjakan tugas ini, saya menggunakan bantuan AI sebagai teman berdiskusi untuk mendukung efisiensi proses belajar dan penulisan programnya. 
+
+alat AI yang digunakan: gemini
+
+bagian yang dibantu oleh AI:
+1. menjelaskan alur pemrograman untuk membedakan hak akses halaman agar pengguna biasa dan pengelola utama memiliki batasan yang sesuai.
+2. memberikan saran perbaikan ketika menemui penulisan program yang memungkinkan menimbulkan masalah.
+
