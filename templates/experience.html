@@ -11,10 +11,12 @@
             <p class="section-kicker">Perjalanan saya sejauh ini</p>
             <h1 class="section-heading">Experience</h1>
 
-            <!-- tombol tambah pengalaman -->
-            <div style="margin-bottom: 2rem;">
-                <a href="{% url 'main:create_experience' %}" class="button">+ Tambah Pengalaman</a>
-            </div>
+            <!-- tombol tambah pengalaman (hanya untuk superuser) -->
+            {% if user.is_superuser %}
+                <div style="margin-bottom: 2rem;">
+                    <a href="{% url 'main:create_experience' %}" class="button">+ Tambah Pengalaman</a>
+                </div>
+            {% endif %}
 
             <div class="experience-grid">
                 {% for experience in experience_list %}
@@ -33,16 +35,21 @@
                             <p class="experience-status">Selesai ({{ experience.ended_at }})</p>
                         {% endif %}
 
-                        <!-- tombol edit & delete -->
-                        <div class="card-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
-                            <a href="{% url 'main:edit_experience' experience.pk %}" class="button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Edit</a>
-                            
-                            <!-- form Delete -->
-                            <form action="{% url 'main:delete_experience' experience.pk %}" method="POST" style="display: inline;">
-                                {% csrf_token %}
-                                <button type="submit" class="button button-danger" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="return confirm('Apakah kamu yakin ingin menghapus pengalaman ini?');">Delete</button>
-                            </form>
-                        </div>
+                        <!-- tombol edit & delete (disesuaikan berdasarkan hak akses) -->
+                        {% if user.is_superuser or user.groups.all.exists and user.groups.first.name == 'Editor' %}
+                            <div class="card-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                                <!-- tombol edit (bisa diakses superuser dan editor) -->
+                                <a href="{% url 'main:edit_experience' experience.pk %}" class="button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Edit</a>
+                                
+                                <!-- tombol delete (hanya untuk superuser) -->
+                                {% if user.is_superuser %}
+                                    <form action="{% url 'main:delete_experience' experience.pk %}" method="POST" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="button button-danger" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="return confirm('Apakah kamu yakin ingin menghapus pengalaman ini?');">Delete</button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     </article>
                 {% empty %}
                     <p class="empty-state">
