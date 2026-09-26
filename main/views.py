@@ -126,7 +126,12 @@ def show_experience(request):
     return render(request, "experience.html", context)
 
 
+@login_required(login_url="/login/")
 def create_experience(request):
+    # hanya superuser yang boleh menambah experience
+    if not request.user.is_superuser:
+        raise PermissionDenied
+
     form = ExperienceForm(request.POST or None)
 
     if request.method == "POST" and form.is_valid():
@@ -140,7 +145,12 @@ def create_experience(request):
     return render(request, "experience_form.html", context)
 
 
+@login_required(login_url="/login/")
 def edit_experience(request, experience_id):
+    # superuser atau editor yang berada di grup 'editor' boleh mengubah data
+    if not (request.user.is_superuser or request.user.groups.filter(name='Editor').exists()):
+        raise PermissionDenied
+
     experience = get_object_or_404(Experience, pk=experience_id)
     form = ExperienceForm(request.POST or None, instance=experience)
 
@@ -156,7 +166,12 @@ def edit_experience(request, experience_id):
     return render(request, "experience_form.html", context)
 
 
+@login_required(login_url="/login/")
 def delete_experience(request, experience_id):
+    # hanya superuser yang boleh menghapus experience
+    if not request.user.is_superuser:
+        raise PermissionDenied
+
     experience = get_object_or_404(Experience, pk=experience_id)
     if request.method == "POST":
         experience.delete()
@@ -181,7 +196,6 @@ def register(request):
 def login_user(request):
     form = AuthenticationForm(request, data=request.POST or None)
 
-    # menangkap parameter next dari URL (GET) atau dari form (POST)
     next_url = request.POST.get('next') or request.GET.get('next') or 'main:show_main'
 
     if request.method == "POST" and form.is_valid():
@@ -194,7 +208,7 @@ def login_user(request):
     context = {
         "name": "Muhammad Hafidz Muazzam",
         "form": form,
-        "next": next_url, # kirim variabel next ke template
+        "next": next_url,
     }
     return render(request, "login.html", context)
 
