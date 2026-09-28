@@ -49,3 +49,11 @@ bagian yang dibantu oleh AI:
 1. menjelaskan alur pemrograman untuk membedakan hak akses halaman agar pengguna biasa dan pengelola utama memiliki batasan yang sesuai.
 2. memberikan saran perbaikan ketika menemui penulisan program yang memungkinkan menimbulkan masalah.
 
+### Tugas 5
+1. debouncing adalah teknik penundaan eksekusi fungsi sampai pengguna selesai mengetik. hal ini penting untuk mencegah penumpukan request ke server pada setiap karakter yang diketik sekaligus menjaga agar performa aplikasi tetap stabil dan optimal.
+
+2. await digunakan untuk memaksa program menunggu proses fetching data selesai. jika tidak digunakan, program akan langsung lompat ke baris berikutnya saat data belum siap sehingga dapat menyebabkan variabel bernilai undefined dan memunculkan error.
+
+3. XSS merupakan celah keamanan yang memungkinkan pihak luar menyisipkan skrip berbahaya. data AJAX lebih rentan karena sering dirender secara langsung sebagai teks mentah, sementara template Django sudah dilengkapi dengan sistem pengaman otomatis untuk mencegahnya.
+
+dalam pengerjaan tugas ini, saya memanfaatkan AI untuk membantu menyelaraskan dan mengecek struktur kode dan penulisan program pada bagian experience agar konsisten atau seragam dengan yang ada pada bagian projects.
